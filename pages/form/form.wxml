@@ -1,0 +1,25 @@
+<!--pages/form/form.wxml-->
+<view class="form-bg">
+  <image src="./receveTitel.png" mode="aspectFit" class="title"></image>
+  <text class="sub-title">请认真填写以下收货信息，以保障奖品能顺利送达您的手里。我们将于活动结束后统一寄出礼品，谢谢您的参与。</text>
+ <form catchsubmit="formSubmit" catchreset="formReset">
+    <view class="form-item">
+      <text class="label">姓名</text>
+      <input name='name' class="form-input"  placeholder="请填写收件人姓名"/>
+    </view>
+     <view class="form-item">
+      <text class="label">手机号</text>
+      <input class="form-input" name='phoneNumber'  placeholder="请填写收件人手机号"/>
+    </view>
+     <view class="form-item">
+      <text class="label">所在城市</text>
+      <input class="form-input" name='city'  placeholder="请填写您所在的城市"/>
+    </view>
+     <view class="form-item">
+      <text class="label">详细地址</text>
+      <input class="form-input" name='address'  placeholder="如某街道某小区"/>
+    </view> 
+    <button class="submit-btn" formType="submit" >提交</button>
+ </form>
+ <image src="./btlogo.png" class="bt-logo" mode="aspectFit"></image>
+</view>

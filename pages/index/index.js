@@ -44,5 +44,42 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  startTest(){
+    
+    //todo 先判断是否已经登录、再判断今日是否已答题
+    wx.showModal({
+      title: '提醒',
+      content: '今日已答题，请明天再来',
+      success (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })  
+
+    // wx.navigateTo({
+    //   url: '/pages/test/test',
+    // })
+  },
+  showIntro(){
+    wx.showModal({
+      title: '活动介绍',
+      content: '这是一个模态弹窗这是一个模态弹窗这是一个模态弹窗这是一个模态弹窗这是一个模态弹窗这是一个模态弹窗',
+      success (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })  
+  },
+  gotoMygrade(){
+    wx.navigateTo({
+      url: '/pages/form/form',
+    })
   }
 })

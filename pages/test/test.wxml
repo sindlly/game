@@ -1,0 +1,48 @@
+<!--pages/test/test.wxml-->
+<view class="test-bg">
+    <image class="content-bg" src="./content.png" mode="widthFix"></image>
+    <view class="express" wx:if="{{ !showSuccessModal && !showFailModal }}">
+      <van-circle show="{{ !showModal }}" value="{{ timeValue }}"  speed="{{100/30}}"size='80' text="{{time}}" />
+    </view>
+    <view class="step">
+      第几关1/10
+    </view>
+    <view class="test-area">
+      <text class="question">
+        {{question}}
+      </text>
+      <view class="selection">
+        <view class="selection-item {{item==resoultId?'selection-right':resoultId!=0?'selection-false':''}}"  wx:for="{{selection}}" wx:key="idx" bindtap="chiose" data-id="{{item}}">
+          C.  检查秘密文件的书写、伪装等秘密技术的落实情况
+        </view>
+        <!-- <view>
+          <button bindtap="showModal">成功</button>
+          <button bindtap="showFailModal">失败</button>
+        </view> -->
+      </view>
+    </view>
+    <van-overlay show="{{ showSuccessModal }}">
+            <view class="wrapper">
+              <image class="modal" src="./success.png" mode="widthFix"></image>
+              <view class="modal-content">
+                <text>您可以直接领走三等奖奖品（精美礼品1份），也可以选择继续答题闯关，向更高的奖品发起挑战。</text>
+                <view class="modal-action">
+                  <button class="btn-gost" bindtap="getGrade">领取奖品</button>
+                  <button class="btn-active" bindtap="goOn">继续挑战</button>
+                </view>
+              </view>
+            </view>
+  </van-overlay>
+  <van-overlay show="{{ showFailModal }}">
+            <view class="wrapper">
+              <image class="modal" src="./fail.png" mode="widthFix"></image>
+              <view class="modal-content">
+                <text>很抱歉，您今日的答题次数已用完，请明日再来参与挑战。</text>
+                <view class="modal-action">
+                  <button class="btn-gost" bindtap="getGrade">返回首页</button>
+                  <button class="btn-active" bindtap="goOn">继续挑战</button>
+                </view>
+              </view>
+            </view>
+  </van-overlay>
+</view>

@@ -27,3 +27,10 @@
   height: 100%;
   z-index: -1;
 }
+.action-area{
+  position: absolute;
+  bottom: 10%;
+}
+.btn{
+    margin-bottom: 10px;
+}

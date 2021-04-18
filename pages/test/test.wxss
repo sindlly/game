@@ -1,0 +1,119 @@
+/* pages/test/test.wxss */
+.test-bg{
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(#63a4e7, #7171c8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.content-bg{
+  width: 700rpx;
+  /* height: 100vh; */
+  position: absolute;
+  top: 40rpx;
+  /* top: 40rpx; */
+}
+.express{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  /* background: red; */
+  position:absolute;
+  top: 50rpx;
+  right: 70rpx;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.step{
+  position: absolute;
+  top:150rpx;
+  left: 50rpx;
+  padding:10rpx 20rpx;
+  background-color: #f2b75b;
+  border-top-right-radius: 40%;
+  border-bottom-right-radius: 40%;
+  color:#fff
+}
+.test-area{
+  /* position: absolute; */
+  width: 550rpx;
+  /* min-height: 600rpx; */
+  /* background: red; */
+  margin-top: 250rpx;
+  z-index: 1;
+}
+.question{
+  font-size:0.9rem
+}
+.selection{
+  margin-top: 30rpx;
+}
+.selection-item{
+  text-indent: -30rpx;
+  font-size:0.8rem;
+  margin-top: 40rpx;
+  position: relative;
+  width: calc(100%-40rpx);
+  padding:15rpx 20rpx 15rpx 50rpx;
+  border: 2rpx solid #6c84d4;
+  border-radius: 8rpx;
+}
+.selection-right{
+  color:#fff;
+  background: #53a949;
+}
+.selection-false{
+  color:#fff;
+  background: #ea6d11;
+}
+.wrapper{
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top:40rpx;
+}
+.modal{
+  width: 600rpx;
+}
+.modal-content{
+  width: 500rpx;
+  font-size:.8rem;
+  position: absolute;
+  color:#666;
+  top:340rpx;
+  z-index: 100;
+}
+.modal-action{
+  margin-top: 40rpx;
+  display: flex;
+}
+.btn-gost{
+  font-size: 1rem;
+  width: 220rpx;
+  line-height: 88rpx;
+  font-family: "FZLTHJW";
+  color: rgb(234, 109, 17);
+  border-width: 2rpx;
+  border-color: rgb(234, 109, 17);
+  border-style: solid;
+  border-radius: 20rpx;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 5rpx 5rpx 0px rgba(170, 89, 30, 0.2);
+}
+.btn-active{
+  width: 220rpx;
+  font-size: 1rem;
+  line-height: 88rpx;
+  font-family: "FZLTHJW";
+  background-color: rgb(234, 109, 17);
+  border-width: 2rpx;
+  color: #fff;
+  border-style: solid;
+  border-radius: 20rpx;
+  box-shadow: 0px 5rpx 5rpx 0px rgba(170, 89, 30, 0.2);
+}

@@ -1,0 +1,55 @@
+/* pages/form/form.wxss */
+.form-bg{
+  height: 100vh;
+  background-image: linear-gradient(#63a4e7, #7171c8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.title{
+  width: 50%;
+  height: 200rpx;
+}
+.sub-title{
+  color: #fff;
+  width: 70%;
+  font-size: 0.8rem;
+}
+form{
+  width: 80%;
+  position: relative;
+}
+.form-item{
+  margin-top: 40rpx;
+  display: flex;
+  /* width: 100%; */
+  height: 80rpx;
+  padding: 0 30rpx;
+  align-items: center;
+  line-height: 100%;
+  background-color:#fff;
+  border-radius: 10rpx;
+  overflow: hidden;
+  position: relative;
+}
+.label{
+  width: 30%;
+  font-size: 0.9rem;
+}
+.form-input{
+  /* flex: 70%; */
+}
+
+.submit-btn{ 
+  width: 90%;
+  margin-top: 60rpx;
+  color: rgb(255, 255, 255);
+  background-color: rgb(234, 109, 17);
+  box-shadow: 0px 20rpx 20rpx 0rpx rgba(181, 80, 5, 0.2);
+}
+.bt-logo{
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  height: 240rpx;
+}

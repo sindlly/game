@@ -2,9 +2,9 @@
 <view class="container">
   <image class="bg" src="./bg.jpeg"></image>
   <view class="action-area">
-    <button>开始答题</button>
-    <button>活动介绍</button>
-    <button>我的答题</button>
+    <button class='btn' bindtap="startTest">开始答题</button>
+    <button class="btn" bindtap="showIntro">活动介绍</button>
+    <button class="btn" bindtap="gotoMygrade">我的答题</button>
   </view>
   <!-- <view class="userinfo">
     <block wx:if="{{canIUseOpenData}}" calss="userinfo-opendata">

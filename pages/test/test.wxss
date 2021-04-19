@@ -6,22 +6,30 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+.test-main{
+  width: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .content-bg{
   width: 700rpx;
+  height: 90vh;
   /* height: 100vh; */
-  position: absolute;
-  top: 40rpx;
+  /* position: absolute; */
+  /* top: 0rpx; */
   /* top: 40rpx; */
 }
 .express{
-  width: 160rpx;
-  height: 160rpx;
+  width: 180rpx;
+  height: 180rpx;
   border-radius: 50%;
-  /* background: red; */
+  background: #fff;
   position:absolute;
-  top: 50rpx;
-  right: 70rpx;
+  top: 20rpx;
+  right: 40rpx;
   z-index: 10;
   display: flex;
   justify-content: center;
@@ -29,21 +37,26 @@
 }
 .step{
   position: absolute;
+  height: 70rpx;
+  line-height: 70rpx;
   top:150rpx;
   left: 50rpx;
-  padding:10rpx 20rpx;
+  padding:0rpx 40rpx;
   background-color: #f2b75b;
-  border-top-right-radius: 40%;
-  border-bottom-right-radius: 40%;
-  color:#fff
+  color:#fff;
+  display: flex;
+  border-radius: 0 60rpx 60rpx 0;
 }
 .test-area{
-  /* position: absolute; */
+  position: absolute;
   width: 550rpx;
   /* min-height: 600rpx; */
   /* background: red; */
-  margin-top: 250rpx;
+  margin-top: 200rpx;
+  height: calc(100% - 340rpx);
   z-index: 1;
+  overflow-y: auto;
+  padding-bottom: 10rpx;
 }
 .question{
   font-size:0.9rem

@@ -7,7 +7,7 @@ Page({
   data: {
     time:0,
     timeValue:0,
-    question:'1929年12月，中共中央制定了《中共中央秘密工作条例》，其中明确了各级党的秘密委员会的职责任务。其中包括____。',
+    question:'1935年1月，在红军长征途中',
     selection:[1,2,3,4],
     resoultId:1,
     showSuccessModal:false,
@@ -18,9 +18,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //todo 1、获取题目
+    //todo 2、开始计时
     this.setTime()
   },
+  getQuestions(){
 
+  },
   setTime(){
     setInterval(()=>{
       let count = this.data.time

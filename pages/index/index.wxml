@@ -1,29 +1,21 @@
 <!--index.wxml-->
 <view class="container">
-  <image class="bg" src="./bg.jpeg"></image>
-  <view class="action-area">
-    <button class='btn' bindtap="startTest">开始答题</button>
-    <button class="btn" bindtap="showIntro">活动介绍</button>
-    <button class="btn" bindtap="gotoMygrade">我的答题</button>
-  </view>
-  <!-- <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}" calss="userinfo-opendata">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <open-data type="userNickName"></open-data>
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view> -->
-</view>
+  <image class="bg" src="./bg.png"></image>
+  <image src="./rule.png" class="rule" bindtap="togglleRule" mode="widthFix" ></image>
+  <image src="./start.png" class="start" bindtap="startTest" mode="widthFix" ></image>
+  <image src="./record.png" class="record" bindtap="togglleRecord" mode="widthFix" ></image>
+</view> 
+<van-overlay show="{{ showIntro }}">
+            <view class="wrapper">
+              <image class="modal-img" src="./ruleIntro.png" mode="widthFix"></image>
+              <image class="close" src="./close.png" bindtap="togglleRule" mode="widthFix"></image>
+            </view>
+</van-overlay>
+<van-overlay show="{{ showRecord }}">
+            <view class="wrapper">
+              <view class="recordList">
+                <image class="modal-img" src="./recordList.png" mode="widthFix"></image>
+              </view>
+              <image class="close" src="./close.png" bindtap="togglleRecord" mode="widthFix"></image>
+            </view>
+</van-overlay>

@@ -1,22 +1,4 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #aaa;
-}
-
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.usermotto {
-  margin-top: 200px;
-}
 .container{
   height: 100%;
 }
@@ -27,6 +9,48 @@
   height: 100%;
   z-index: -1;
 }
+.rule{
+  width: 180rpx;
+  position: absolute;
+  top: 50rpx;
+  right: 40rpx;
+}
+.record{
+  width: 160rpx;
+  position: absolute;
+  bottom: 80rpx;
+}
+.start{
+  width: 400rpx;
+  position: absolute;
+  bottom: 200rpx;
+}
+.wrapper{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal-img{
+  height: 878rpx ;
+  width: 758rpx;
+}
+.recordList{
+  height: 878rpx ;
+  width: 758rpx;
+}
+.close{
+  margin-top: 40rpx;
+  width: 80rpx;
+}
+
+
+
+
+
+
 .action-area{
   position: absolute;
   bottom: 10%;

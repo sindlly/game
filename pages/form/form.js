@@ -1,4 +1,5 @@
 // pages/form/form.js
+const app = getApp()
 Page({
 
   /**
@@ -65,5 +66,18 @@ Page({
   },
   formSubmit(e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    let data = e.detail.value
+    data.record_id = app.globleData.record_id
+    data.reward = app.globleData.reward
+    app.wxRequest('post','/orders',data,(res)=>{
+        if(res.code == 0){
+          //提交成功，返回首页
+          wx.navigateTo({
+            url: '/pages/index/index',
+          })
+        }else if(res.code == 12002){
+          //表奖品已经被领完 可以选择下一级产品
+        }
+    })
   },
 })

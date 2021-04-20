@@ -1,9 +1,13 @@
 <!--index.wxml-->
 <view class="container">
-  <image class="bg" src="./bg.png"></image>
-  <image src="./rule.png" class="rule" bindtap="togglleRule" mode="widthFix" ></image>
+  <!-- <image class="bg" src="./bg.png"></image> -->
+  <!-- <image src="./rule.png" class="rule" bindtap="togglleRule" mode="widthFix" ></image> -->
   <image src="./start.png" class="start" bindtap="startTest" mode="widthFix" ></image>
-  <image src="./record.png" class="record" bindtap="togglleRecord" mode="widthFix" ></image>
+  <!-- <image src="./record.png" class="record" bindtap="togglleRecord" mode="widthFix" ></image>
+  <image src="./cloud.png" class="cloud" animation="{{animationData}}"  mode="widthFix"></image>
+  <image src="./cloud.png" class="cloud cloud1" animation="{{animationData}}"  mode="widthFix"></image>
+  <image src="./cloud.png" class="cloud cloud2" animation="{{animationData}}"  mode="widthFix"></image> -->
+
 </view> 
 <van-overlay show="{{ showIntro }}">
             <view class="wrapper">

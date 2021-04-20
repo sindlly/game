@@ -35,11 +35,11 @@
 }
 .modal-img{
   height: 878rpx ;
-  width: 758rpx;
+  width: 700rpx;
 }
 .recordList{
   height: 878rpx ;
-  width: 758rpx;
+  width: 700rpx;
 }
 .close{
   margin-top: 40rpx;
@@ -57,4 +57,17 @@
 }
 .btn{
     margin-bottom: 10px;
+}
+.cloud{
+  width: 300rpx;
+  position: absolute;
+  top: 100rpx;
+}
+.cloud1{
+  top: 150rpx;
+  left: 40rpx;
+}
+.cloud2{
+  top: 180rpx;
+  right:40rpx;
 }

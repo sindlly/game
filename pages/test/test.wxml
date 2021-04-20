@@ -3,18 +3,18 @@
     <view class="test-main">
       <image class="content-bg" src="./content.png"></image>
       <view class="express" wx:if="{{ !showSuccessModal && !showFailModal }}">
-        <van-circle fill="#fff" show="{{ !showModal }}" value="{{ timeValue }}"  speed="{{100/30}}"size='80' text="{{time}}" />
+        <van-circle fill="#fff" show="{{ !showModal }}" value="{{ 100/30*time }}"  speed="{{120}}" size='80' text="{{time}}" />
       </view>
       <view class="step">
-        第几关1/10
+        第{{level_type[0]=='level1'?'一':level_type[0]=='level2'?'二':level_type[0]=='level3'?'三':''}}关 {{currentPageCount+1}}/10
       </view>
       <view class="test-area">
         <text class="question">
-          {{question}}
+          {{title}}
         </text>
        <view class="selection">
-          <view class="selection-item {{item==resoultId?'selection-right':resoultId!=0?'selection-false':''}}"  wx:for="{{selection}}" wx:key="idx" bindtap="chiose" data-id="{{item}}">
-            C.  前苏联小说《钢铁是怎样炼成的》
+          <view class="selection-item {{item.class}}"  wx:for="{{options}}" wx:key="idx" bindtap="chiose" data-index="{{index}}" data-id="{{item.identifer}}">
+            {{item.identifer}}. {{item.description}}
           </view>
         </view> 
       </view>
@@ -22,7 +22,7 @@
     
     <van-overlay show="{{ showSuccessModal }}">
             <view class="wrapper">
-              <image class="modal" src="./success.png" mode="widthFix"></image>
+              <image class="modal-img" src="./success.png" mode="widthFix"></image>
               <view class="modal-content">
                 <text>您可以直接领走三等奖奖品（精美礼品1份），也可以选择继续答题闯关，向更高的奖品发起挑战。</text>
                 <view class="modal-action">
@@ -34,11 +34,11 @@
   </van-overlay>
   <van-overlay show="{{ showFailModal }}">
             <view class="wrapper">
-              <image class="modal" src="./fail.png" mode="widthFix"></image>
+              <image class="modal-img" src="./fail.png" mode="widthFix"></image>
               <view class="modal-content">
                 <text>很抱歉，您今日的答题次数已用完，请明日再来参与挑战。</text>
                 <view class="modal-action">
-                  <button class="btn-gost" bindtap="getGrade">返回首页</button>
+                  <button class="btn-gost" bindtap="goHome">返回首页</button>
                   <button class="btn-active" bindtap="goOn">继续挑战</button>
                 </view>
               </view>

@@ -6,19 +6,47 @@ Page({
   data: {
     showIntro:false,
     showRecord:false,
+    animationData:{},
   },
-  // 事件处理函数
-  bindViewTap() {
-    wx.navigateTo({
-      url: '../logs/logs'
+  //动画
+  animation(){
+    var animation = wx.createAnimation({
+      duration: 2000,
+      timingFunction: 'ease'
     })
-  },
-  onLoad() {
-    if (wx.getUserProfile) {
+
+    this.animation = animation
+
+    // animation.translateX(1000).step()
+
+    // this.setData({
+    //   animationData:animation.export()
+    // })
+
+    let next = true;
+    let count = 0;
+    //连续动画关键步骤
+    setInterval(function () {
+      count++
+      if (next) {
+        animation.translateX(200).step({duration:3000})
+        // animation.translateY(5)
+        // this.animation.scale(0.95).step()   
+        next = !next;
+      } else {
+        animation.translateX(-400).step({duration:1})
+        // animation.translateY(0)
+        // this.animation.scale(1).step()
+        next = !next;
+      }
       this.setData({
-        canIUseGetUserProfile: true
+        animationData: animation.export()
       })
-    }
+    }.bind(this), 2000)
+  },
+
+  onLoad() {
+    this.animation()
   },
   togglleRule(){
     this.setData({
@@ -32,11 +60,23 @@ Page({
   },
   startTest(){
     //todo 判断登录
+     // 登录
+     wx.login({
+      success: res => {
+        console.log(res)
+        app.wxRequest('post','/auth/login',{code:res.code},(res)=>{
+          app.globalData.token=res.data.data.token
+          console.log(app.globalData.token)
+          wx.navigateTo({
+            url: '/pages/test/test',
+          })
+        })
+      }
+    })
     //todo 判断今日答题次数
     //todo 跳转到答题页
-    wx.navigateTo({
-      url: '/pages/test/test',
-    })
+
+   
   },
 
 

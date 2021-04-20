@@ -7,6 +7,7 @@ Page({
     showIntro:false,
     showRecord:false,
     animationData:{},
+    records:[],
   },
   //动画
   animation(){
@@ -47,6 +48,9 @@ Page({
 
   onLoad() {
     this.animation()
+    // wx.setNavigationBarColor({
+    //   backgroundColor: '#63a3e7',
+    // })
   },
   togglleRule(){
     this.setData({
@@ -56,7 +60,38 @@ Page({
   togglleRecord(){
     this.setData({
       showRecord:!this.data.showRecord
+    },()=>{
+      if(this.data.showRecord){
+        //获取答题记录
+        wx.showLoading({
+          title: '请稍等',
+        })
+        wx.login({
+          success: res => {
+            console.log(res)
+            app.wxRequest('post','/auth/login',{code:res.code},(res)=>{
+              app.globalData.token=res.data.data.token
+                app.wxRequest("get","/users/statistics",'',(res)=>{
+                  let temp = res.data.data.records
+                  temp.map((item,index)=>{
+                    temp[index].time =item.time.replace(/T|Z/g," ")
+                    temp[index].reward = item.reward == '1'?"三等奖":item.reward == '2'?'二等奖':item.reward == '3'?'一等奖':'0'
+                  })
+                  this.setData({
+                    records:temp
+                  },()=>{
+                    wx.hideLoading({
+                      success: (res) => {},
+                    })
+                    console.log(this.data.records)
+                  })
+                })
+            })
+          }
+        })
+      }
     })
+    
   },
   startTest(){
     //todo 判断登录

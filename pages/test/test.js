@@ -29,7 +29,7 @@ Page({
   onLoad: function (options) {
     //todo 1、获取题目
     //todo 2、开始计时
-    this.setTime()
+    // this.setTime()
     this.getQuestions()
   },
   getQuestions(){
@@ -128,12 +128,21 @@ Page({
       }else{
         // isRight = false
         //处理错误答案
+        let answer = this.data.questionSet[this.data.level_type[0]][this.data.currentPageCount-1].answer
+        temp.map((item,idx)=>{
+          if(item.identifer == answer){
+            temp[idx].class = 'selection-right'
+          }
+        })
         temp[index].class = 'selection-false'
         this.setData({
           options:temp
         })
         //答案错误弹窗
-        this.showFailModal()
+        setTimeout(()=>{
+          this.showFailModal()
+        },2000)
+        
       }
     })
   },
@@ -158,7 +167,7 @@ Page({
   //领取奖品
   getGrade(){
     app.globalData.record_id = this.data.CurrenId
-    app.globalData.reward = this.data.level_type[0]=='level1'?3:this.data.level_type[0]=='level2'?2:this.data.level_type[0]=='level3'?1:0
+    app.globalData.reward = this.data.level_type[0]=='level1'?1:this.data.level_type[0]=='level2'?2:this.data.level_type[0]=='level3'?3:0
     wx.navigateTo({
       url: '/pages/form/form',
     })

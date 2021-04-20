@@ -5,13 +5,12 @@ App({
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
   },
   globalData: {
     url: 'https://reading.cqyir.com/api',
-    token:'45555e03-2a91-49e9-b7e9-90765e7c8690',
+    token:'ed76ce54-aa3e-40a6-8aa3-4983b6eac0ec',
     record_id:'',  //问卷id
-    reward:1, //领取的奖励 1 - 第一关，2 - 第二关，3 - 第三关
+    reward:2, //领取的奖励 1 - 第一关，2 - 第二关，3 - 第三关
   },
   /**
     * 封装wx.request请求
@@ -27,7 +26,8 @@ App({
       method: method,
       data: data,
       header: {
-        'content-type': method == 'GET'?'application/json':'application/x-www-form-urlencoded',
+        // 'content-type': method == 'GET'?'application/json':'application/x-www-form-urlencoded',
+        'Content-type': 'application/json',
         'Accept': 'application/json',
         'Cookie':'access_token='+this.globalData.token
       },

@@ -1,6 +1,7 @@
 <!--index.wxml-->
 <view class="container">
   <image class="bg" src="./bg.png"></image>
+  <image src="./logo.png" class="logo"mode="widthFix" ></image>
   <image src="./rule.png" class="rule" bindtap="togglleRule" mode="widthFix" ></image>
   <image src="./start.png" class="start" bindtap="startTest" mode="widthFix" ></image>
   <image src="./record.png" class="record" bindtap="togglleRecord" mode="widthFix" ></image>
@@ -19,6 +20,20 @@
             <view class="wrapper">
               <view class="recordList">
                 <image class="modal-img" src="./recordList.png" mode="widthFix"></image>
+                <div class="table-title">
+                  <text class="table-item">序号</text>
+                  <text class="table-item item-time">答题时间</text>
+                  <text class="table-item">答题数</text>
+                  <text class="table-item">领奖结果</text>
+                </div>
+                <div class="table-content">
+                  <div class="content-item" wx:for="{{records}}" wx:key='idx'>
+                    <text class="table-item">{{index}}</text>
+                    <text class="table-item item-time">{{item.time}}</text>
+                    <text class="table-item item-total">{{item.totalScore}}</text>
+                    <text class="table-item">{{item.reward}}</text>
+                  </div>
+                </div>
               </view>
               <image class="close" src="./close.png" bindtap="togglleRecord" mode="widthFix"></image>
             </view>

@@ -1,7 +1,7 @@
 <!--pages/form/form.wxml-->
 <view class="form-bg">
   <image src="./receveTitel.png" mode="aspectFit" class="title"></image>
-  <text>test:这是{{gradeLevel}}等奖</text>
+  <text>test:这是第{{gradeLevel}}关的奖</text>
   <text class="sub-title">请认真填写以下收货信息，以保障奖品能顺利送达您的手里。我们将于活动结束后统一寄出礼品，谢谢您的参与。</text>
  <form catchsubmit="formSubmit" catchreset="formReset">
     <view class="form-item">
@@ -10,11 +10,11 @@
     </view>
      <view class="form-item">
       <text class="label">手机号</text>
-      <input class="form-input" name='phoneNumber'  placeholder="请填写收件人手机号"/>
+      <input class="form-input" name='phone'  placeholder="请填写收件人手机号"/>
     </view>
      <view class="form-item">
       <text class="label">所在城市</text>
-      <input class="form-input" name='city'  placeholder="请填写您所在的城市"/>
+      <input class="form-input" name='area'  placeholder="请填写您所在的城市"/>
     </view>
      <view class="form-item">
       <text class="label">详细地址</text>

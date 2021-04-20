@@ -70,16 +70,53 @@ Page({
   formSubmit(e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     let data = e.detail.value
-    data.record_id = app.globleData.record_id
-    data.reward = app.globleData.reward
+    data.record_id = app.globalData.record_id
+    data.reward = ""+app.globalData.reward
+    
+    let isMyreward = "level"+app.globalData.reward
     app.wxRequest('post','/orders',data,(res)=>{
         if(res.code == 0){
+          let sorryText = isMyreward == res.data.data.level?'':'您申请的奖品已经被领完,'
           //提交成功，返回首页
-          wx.navigateTo({
-            url: '/pages/index/index',
-          })
+          wx.showModal({
+            title: '提交成功',
+            showCancel:false,
+            content: `${sorryText}恭喜你获得${res.data.data.name}`,
+            success (res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/index/index',
+                })
+              }
+            }
+          }) 
         }else if(res.code == 12002){
           //表奖品已经被领完 可以选择下一级产品
+          wx.showModal({
+            title: '提交成功',
+            showCancel:false,
+            content: `很遗憾，奖品已发完`,
+            success (res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/index/index',
+                })
+              }
+            }
+          }) 
+        }else if(res.code == 12005){
+          wx.showModal({
+            title: '提交失败',
+            showCancel:false,
+            content: `您已经领过奖品，不能重复领奖`,
+            success (res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/index/index',
+                })
+              }
+            }
+          }) 
         }
     })
   },

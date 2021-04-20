@@ -2,6 +2,12 @@
 .container{
   height: 100%;
 }
+.logo{
+  width: 130rpx;
+  position: absolute;
+  top: -50rpx;
+  left: 0;
+}
 .bg{
   top:0;
   position: absolute;
@@ -24,6 +30,7 @@
   width: 400rpx;
   position: absolute;
   bottom: 200rpx;
+  z-index: 1;
 }
 .wrapper{
   width: 100vw;
@@ -34,16 +41,59 @@
   align-items: center;
 }
 .modal-img{
+  /* position: absolute; */
   height: 878rpx ;
   width: 700rpx;
 }
 .recordList{
   height: 878rpx ;
   width: 700rpx;
+  position: relative;
+}
+.table-title{
+  position: absolute;
+  background: rgba(209,214,226,0.6);
+  padding:10rpx 20rpx;
+  z-index: 100;
+  width: calc(100% - 40rpx);
+  top: 120rpx;
+  left: 0rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.table-item{
+  flex-shrink: 0;
+  flex:1;
+  text-align: center;
+  font-size: 0.7rem;
+}
+.item-time{
+  flex:1.5
 }
 .close{
   margin-top: 40rpx;
   width: 80rpx;
+}
+.table-content{
+  position: absolute;
+  top: 180rpx;
+  left: 0rpx;
+  width: 100%;
+  height: calc(100% - 250rpx);
+  overflow-y: auto;
+}
+.content-item{
+  padding:10rpx 20rpx;
+  z-index: 100;
+  width: calc(100% - 40rpx);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom:2rpx solid #d1d6e2
+}
+.item-total{
+  color:#ea6d11;
+  font-weight: 600;
 }
 
 

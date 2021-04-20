@@ -6,14 +6,14 @@
         <van-circle fill="#fff" show="{{ !showModal }}" value="{{ 100/30*time }}"  speed="{{120}}" size='80' text="{{time}}" />
       </view>
       <view class="step">
-        第{{level_type[0]=='level1'?'一':level_type[0]=='level2'?'二':level_type[0]=='level3'?'三':''}}关 {{currentPageCount+1}}/10
+        第{{level_type[0]=='level1'?'一':level_type[0]=='level2'?'二':level_type[0]=='level3'?'三':''}}关 {{currentPageCount}}/10
       </view>
       <view class="test-area">
         <text class="question">
           {{title}}
         </text>
        <view class="selection">
-          <view class="selection-item {{item.class}}"  wx:for="{{options}}" wx:key="idx" bindtap="chiose" data-index="{{index}}" data-id="{{item.identifer}}">
+          <view class="selection-item {{item.class}}"  wx:for="{{options}}" wx:key="idx" bindtap="chiose" data-index="{{index}}" data-questionid="{{item._id}}" data-id="{{item.identifer}}">
             {{item.identifer}}. {{item.description}}
           </view>
         </view> 
@@ -24,10 +24,12 @@
             <view class="wrapper">
               <image class="modal-img" src="./success.png" mode="widthFix"></image>
               <view class="modal-content">
-                <text>您可以直接领走三等奖奖品（精美礼品1份），也可以选择继续答题闯关，向更高的奖品发起挑战。</text>
+                <text wx:if="{{level_type[0]=='level1'}}">您可以直接领走三等奖奖品（精美礼品1份），也可以选择继续答题闯关，向更高的奖品发起挑战。</text>
+                <text wx:if="{{level_type[0]=='level2'}}">您可以直接领走二等奖奖品（精美礼品1份），也可以选择继续答题闯关，向更高的奖品发起挑战。</text>
+                <text wx:if="{{level_type[0]=='level3'}}">您可以直接领走一等奖奖品（精美礼品1份）</text>
                 <view class="modal-action">
                   <button class="btn-gost" bindtap="getGrade">领取奖品</button>
-                  <button class="btn-active" bindtap="goOn">继续挑战</button>
+                  <button class="btn-active" bindtap="goOn" wx:if="{{level_type[0]!='level3'}}">继续挑战</button>
                 </view>
               </view>
             </view>
@@ -36,10 +38,11 @@
             <view class="wrapper">
               <image class="modal-img" src="./fail.png" mode="widthFix"></image>
               <view class="modal-content">
-                <text>很抱歉，您今日的答题次数已用完，请明日再来参与挑战。</text>
+                <text wx:if="{{leftChance>0}}">很抱歉，本次答题失败，今日还有{{leftChance}}次答题机会,您可以再次发起挑战</text>
+                <text wx:if="{{leftChance==0}}">很抱歉，您今日的答题次数已用完，请明日再来参与挑战。</text>
                 <view class="modal-action">
                   <button class="btn-gost" bindtap="goHome">返回首页</button>
-                  <button class="btn-active" bindtap="goOn">继续挑战</button>
+                  <button class="btn-active" bindtap="goOn" wx:if="{{leftChance!=0}}">继续挑战</button>
                 </view>
               </view>
             </view>

@@ -1,6 +1,7 @@
 <!--pages/form/form.wxml-->
 <view class="form-bg">
   <image src="./receveTitel.png" mode="aspectFit" class="title"></image>
+  <text>test:这是{{gradeLevel}}等奖</text>
   <text class="sub-title">请认真填写以下收货信息，以保障奖品能顺利送达您的手里。我们将于活动结束后统一寄出礼品，谢谢您的参与。</text>
  <form catchsubmit="formSubmit" catchreset="formReset">
     <view class="form-item">

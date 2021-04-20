@@ -8,8 +8,8 @@ App({
 
   },
   globalData: {
-    url: 'http://reading.cqyir.com/api',
-    token:'e72e2742-4c65-4b5e-b787-4c8afbe6fa40',
+    url: 'https://reading.cqyir.com/api',
+    token:'45555e03-2a91-49e9-b7e9-90765e7c8690',
     record_id:'',  //问卷id
     reward:1, //领取的奖励 1 - 第一关，2 - 第二关，3 - 第三关
   },

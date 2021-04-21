@@ -7,51 +7,55 @@ Page({
     showIntro:false,
     showRecord:false,
     animationData:{},
+    animationData2:{},
+    animationData3:{},
+    animationDataBtn:{},
     records:[],
+    intervalId:null,
   },
   //动画
   animation(){
-    var animation = wx.createAnimation({
-      duration: 2000,
-      timingFunction: 'ease'
+    clearInterval(this.data.intervalId)
+    let animation = wx.createAnimation({
+      duration: 5000,
+      timingFunction: 'linaer'
     })
-
-    this.animation = animation
-
-    // animation.translateX(1000).step()
-
-    // this.setData({
-    //   animationData:animation.export()
-    // })
-
+    // this.animation = animation
     let next = true;
-    let count = 0;
     //连续动画关键步骤
-    setInterval(function () {
-      count++
+    this.data.intervalId = setInterval(function(){
       if (next) {
-        animation.translateX(200).step({duration:3000})
-        // animation.translateY(5)
-        // this.animation.scale(0.95).step()   
+        animation.translateY(-20).step()
+        // animation.translateY(0).step()
         next = !next;
       } else {
-        animation.translateX(-400).step({duration:1})
-        // animation.translateY(0)
-        // this.animation.scale(1).step()
+        animation.translateY(20).step()
+        // animation.translateY(20).step()
         next = !next;
       }
       this.setData({
         animationData: animation.export()
       })
-    }.bind(this), 2000)
+    }.bind(this), 5000)
+    
+    animation.translateY(20).step()
+    // animation.translateY(20).step()
+    this.setData({
+      animationData:animation.export()
+    })
   },
+  
 
   onLoad() {
     this.animation()
-    // wx.setNavigationBarColor({
-    //   backgroundColor: '#63a3e7',
+    // wx.playBackgroundAudio({
+    //   dataUrl: 'https://gv-sycdn.kuwo.cn/41ae2b1aa428c02bb5eb830fe4caabe0/60801791/resource/n2/43/38/2842262638.mp3',
+    //   title: '',
+    //   coverImgUrl: ''
     // })
+    
   },
+  
   togglleRule(){
     this.setData({
       showIntro:!this.data.showIntro
@@ -68,7 +72,7 @@ Page({
         })
         wx.login({
           success: res => {
-            console.log(res)
+            // console.log(res)
             app.wxRequest('post','/auth/login',{code:res.code},(res)=>{
               app.globalData.token=res.data.data.token
                 app.wxRequest("get","/users/statistics",'',(res)=>{
@@ -83,7 +87,7 @@ Page({
                     wx.hideLoading({
                       success: (res) => {},
                     })
-                    console.log(this.data.records)
+                    // console.log(this.data.records)
                   })
                 })
             })
@@ -93,18 +97,45 @@ Page({
     })
     
   },
+  scaleBtn(){
+    let animation = wx.createAnimation({
+      duration: 300,
+      timingFunction: 'ease'
+    })
+    animation.scale(1.1,1.1).step()
+    this.setData({
+      animationDataBtn:animation.export()
+    })
+  },
   startTest(){
     //todo 判断登录
      // 登录
+     this.scaleBtn()
+     wx.showLoading({
+      title: '请稍等',
+    })
      wx.login({
       success: res => {
-        console.log(res)
+        // console.log(res)
         app.wxRequest('post','/auth/login',{code:res.code},(res)=>{
           app.globalData.token=res.data.data.token
-          console.log(app.globalData.token)
-          wx.navigateTo({
-            url: '/pages/test/test',
+          app.wxRequest('get',"/questions/chance",'',(res)=>{
+              wx.hideLoading({
+                success: (res) => {},
+              })
+            if(res.data.data.chance == 0){
+                wx.showModal({
+                  title: '提示',
+                  showCancel:false,
+                  content: `您今日的答题次数已用完，请明天再来`,
+                }) 
+            }else{
+              wx.redirectTo({
+                url: '/pages/test/test',
+              })
+            }
           })
+          
         })
       }
     })
@@ -121,7 +152,7 @@ Page({
     wx.getUserProfile({
       desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
-        console.log(res)
+        // console.log(res)
         this.setData({
           userInfo: res.userInfo,
           hasUserInfo: true
@@ -131,7 +162,7 @@ Page({
   },
   getUserInfo(e) {
     // 不推荐使用getUserInfo获取用户信息，预计自2021年4月13日起，getUserInfo将不再弹出弹窗，并直接返回匿名的用户个人信息
-    console.log(e)
+    // console.log(e)
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true

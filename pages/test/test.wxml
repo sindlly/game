@@ -24,9 +24,9 @@
             <view class="wrapper">
               <image class="modal-img" src="./success.png" mode="widthFix"></image>
               <view class="modal-content">
-                <text wx:if="{{level_type[0]=='level1'}}">您可以直接领走三等奖奖品（精美礼品1份），也可以选择继续答题闯关，向更高的奖品发起挑战。</text>
-                <text wx:if="{{level_type[0]=='level2'}}">您可以直接领走二等奖奖品（精美礼品1份），也可以选择继续答题闯关，向更高的奖品发起挑战。</text>
-                <text wx:if="{{level_type[0]=='level3'}}">您可以直接领走一等奖奖品（精美礼品1份）</text>
+                <text wx:if="{{level_type[0]=='level1'}}">您可以直接领走三等奖奖品（巴福刺绣书签1份），也可以选择继续答题闯关，向更高的奖品发起挑战。</text>
+                <text wx:if="{{level_type[0]=='level2'}}">您可以直接领走二等奖奖品（海兰云天温泉券2张），也可以选择继续答题闯关，向更高的奖品发起挑战。</text>
+                <text wx:if="{{level_type[0]=='level3'}}">您可以直接领走一等奖奖品（海云天酒店住宿券1张）</text>
                 <view class="modal-action">
                   <button class="btn-gost" bindtap="getGrade">领取奖品</button>
                   <button class="btn-active" bindtap="goOn" wx:if="{{level_type[0]!='level3'}}">继续挑战</button>

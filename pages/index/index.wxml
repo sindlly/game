@@ -3,11 +3,11 @@
   <image class="bg" src="./bg.png"></image>
   <image src="./logo.png" class="logo"mode="widthFix" ></image>
   <image src="./rule.png" class="rule" bindtap="togglleRule" mode="widthFix" ></image>
-  <image src="./start.png" class="start" bindtap="startTest" mode="widthFix" ></image>
+  <image src="./start.png" class="start" bindtap="startTest" animation="{{animationDataBtn}}" mode="widthFix" ></image>
   <image src="./record.png" class="record" bindtap="togglleRecord" mode="widthFix" ></image>
-  <!-- <image src="./cloud.png" class="cloud" animation="{{animationData}}"  mode="widthFix"></image>
+  <image src="./cloud.png" class="cloud" animation="{{animationData}}"  mode="widthFix"></image>
   <image src="./cloud.png" class="cloud cloud1" animation="{{animationData}}"  mode="widthFix"></image>
-  <image src="./cloud.png" class="cloud cloud2" animation="{{animationData}}"  mode="widthFix"></image> -->
+  <image src="./cloud.png" class="cloud cloud2" animation="{{animationData}}"  mode="widthFix"></image>
 
 </view> 
 <van-overlay show="{{ showIntro }}">
@@ -26,14 +26,15 @@
                   <text class="table-item">答题数</text>
                   <text class="table-item">领奖结果</text>
                 </div>
-                <div class="table-content">
+                <scroll-view class="table-content" scroll-y="true">
                   <div class="content-item" wx:for="{{records}}" wx:key='idx'>
                     <text class="table-item">{{index}}</text>
                     <text class="table-item item-time">{{item.time}}</text>
                     <text class="table-item item-total">{{item.totalScore}}</text>
                     <text class="table-item">{{item.reward}}</text>
                   </div>
-                </div>
+
+                </scroll-view>
               </view>
               <image class="close" src="./close.png" bindtap="togglleRecord" mode="widthFix"></image>
             </view>

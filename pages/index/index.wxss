@@ -80,7 +80,9 @@
   left: 0rpx;
   width: 100%;
   height: calc(100% - 250rpx);
-  overflow-y: auto;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  z-index: 100000;
 }
 .content-item{
   padding:10rpx 20rpx;
@@ -109,15 +111,17 @@
     margin-bottom: 10px;
 }
 .cloud{
-  width: 300rpx;
+  width: 350rpx;
   position: absolute;
   top: 100rpx;
 }
 .cloud1{
-  top: 150rpx;
-  left: 40rpx;
+  width: 300rpx;
+  top: 180rpx;
+  left: 0rpx;
 }
 .cloud2{
-  top: 180rpx;
-  right:40rpx;
+  width: 260rpx;
+  top: 240rpx;
+  right:0rpx;
 }

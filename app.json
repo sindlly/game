@@ -16,5 +16,6 @@
     "navigationBarTextStyle": "white",
     "navigationBarBackgroundColor": "#63a4e7"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "requiredBackgroundModes": ["audio"]
 }

@@ -1,10 +1,20 @@
 // app.js
 App({
   onLaunch() {
-    // 展示本地存储能力
-    const logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+  },
+  onShow: function () {
+    //播放音乐
+    wx.playBackgroundAudio({
+      dataUrl: 'https://gv-sycdn.kuwo.cn/41ae2b1aa428c02bb5eb830fe4caabe0/60801791/resource/n2/43/38/2842262638.mp3',
+      title: '',
+      coverImgUrl: ''
+    })
+  },
+    /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+    wx.stopBackgroundAudio()
   },
   globalData: {
     url: 'https://reading.cqyir.com/api',

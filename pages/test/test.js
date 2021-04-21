@@ -31,6 +31,10 @@ Page({
     //todo 2、开始计时
     // this.setTime()
     this.getQuestions()
+   
+  },
+  onShow: function () {
+    wx.hideHomeButton()
   },
   getQuestions(){
     this.resetData()
@@ -49,7 +53,7 @@ Page({
   },
   setQuestion(){
     this.setData({
-      title:this.data.questionSet[this.data.level_type[0]][this.data.currentPageCount].title+this.data.questionSet[this.data.level_type[0]][this.data.currentPageCount].answer,
+      title:this.data.questionSet[this.data.level_type[0]][this.data.currentPageCount].title,
       options:this.data.questionSet[this.data.level_type[0]][this.data.currentPageCount].options,
       question_id: this.data.questionSet[this.data.level_type[0]][this.data.currentPageCount]._id,
       currentPageCount:this.data.currentPageCount+1
@@ -168,12 +172,12 @@ Page({
   getGrade(){
     app.globalData.record_id = this.data.CurrenId
     app.globalData.reward = this.data.level_type[0]=='level1'?1:this.data.level_type[0]=='level2'?2:this.data.level_type[0]=='level3'?3:0
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/form/form',
     })
   },
   goHome(){
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/index/index',
     })
   },

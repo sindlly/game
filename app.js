@@ -5,9 +5,13 @@ App({
   onShow: function () {
     //播放音乐
     wx.playBackgroundAudio({
-      dataUrl: 'https://gv-sycdn.kuwo.cn/41ae2b1aa428c02bb5eb830fe4caabe0/60801791/resource/n2/43/38/2842262638.mp3',
+      dataUrl: 'http://reading.cqyir.com/HKC371878338_320.mp3',
       title: '',
       coverImgUrl: ''
+    })
+    wx.showShareMenu({
+      withShareTicket: true,
+      menus: ['shareAppMessage', 'shareTimeline']
     })
   },
     /**

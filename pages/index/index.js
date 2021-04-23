@@ -48,6 +48,7 @@ Page({
 
   onLoad() {
     this.animation()
+    this.scaleBtn()
     // wx.playBackgroundAudio({
     //   dataUrl: 'https://gv-sycdn.kuwo.cn/41ae2b1aa428c02bb5eb830fe4caabe0/60801791/resource/n2/43/38/2842262638.mp3',
     //   title: '',
@@ -79,7 +80,7 @@ Page({
                   let temp = res.data.data.records
                   temp.map((item,index)=>{
                     temp[index].time =item.time.replace(/T|Z/g," ")
-                    temp[index].reward = item.reward == '1'?"三等奖":item.reward == '2'?'二等奖':item.reward == '3'?'一等奖':'0'
+                    temp[index].reward = item.reward == '1'?"三等奖":item.reward == '2'?'二等奖':item.reward == '3'?'一等奖':'无'
                   })
                   this.setData({
                     records:temp
@@ -99,13 +100,29 @@ Page({
   },
   scaleBtn(){
     let animation = wx.createAnimation({
-      duration: 300,
+      duration: 1000,
       timingFunction: 'ease'
     })
-    animation.scale(1.1,1.1).step()
+    animation.scale(1.2,1.2).step()
     this.setData({
       animationDataBtn:animation.export()
     })
+    let next = true
+    //连续动画关键步骤
+    setInterval(function(){
+      if (next) {
+        animation.scale(1,1).step()
+        // animation.translateY(0).step()
+        next = !next;
+      } else {
+        animation.scale(1.2,1.2).step()
+        // animation.translateY(20).step()
+        next = !next;
+      }
+      this.setData({
+        animationDataBtn: animation.export()
+      })
+    }.bind(this), 1000)
   },
   startTest(){
     //todo 判断登录

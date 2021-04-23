@@ -2,9 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/form/form",
-  
-   
-   
+ 
+    
     "pages/test/test",
     "pages/logs/logs",
     "pages/mygrade/mygrade"

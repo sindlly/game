@@ -23,12 +23,12 @@
                 <div class="table-title">
                   <text class="table-item">序号</text>
                   <text class="table-item item-time">答题时间</text>
-                  <text class="table-item">答题数</text>
+                  <text class="table-item">答对题数</text>
                   <text class="table-item">领奖结果</text>
                 </div>
                 <scroll-view class="table-content" scroll-y="true">
                   <div class="content-item" wx:for="{{records}}" wx:key='idx'>
-                    <text class="table-item">{{index}}</text>
+                    <text class="table-item">{{index+1}}</text>
                     <text class="table-item item-time">{{item.time}}</text>
                     <text class="table-item item-total">{{item.totalScore}}</text>
                     <text class="table-item">{{item.reward}}</text>

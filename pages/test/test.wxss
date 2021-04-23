@@ -1,12 +1,13 @@
 /* pages/test/test.wxss */
 .test-bg{
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background-image: linear-gradient(#63a4e7, #7171c8);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 .test-main{
   width: 100vh;

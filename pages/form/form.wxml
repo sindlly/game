@@ -1,8 +1,8 @@
 <!--pages/form/form.wxml-->
 <view class="form-bg">
   <image src="./receveTitel.png" mode="aspectFit" class="title"></image>
-  <text>test:这是第{{gradeLevel}}关的奖</text>
-  <text class="sub-title">请认真填写以下收货信息，以保障奖品能顺利送达您的手里。我们将于活动结束后统一寄出礼品，谢谢您的参与。</text>
+  <!-- <text>test:这是第{{gradeLevel}}关的奖</text> -->
+  <text class="sub-title">请及时填写个人信息：姓名、手机号、地址；凭借相关信息至重庆高新区管委会5号楼247室（公共服务局文旅科）领取，咨询电话：68680032</text>
  <form catchsubmit="formSubmit" catchreset="formReset">
     <view class="form-item">
       <text class="label">姓名</text>
